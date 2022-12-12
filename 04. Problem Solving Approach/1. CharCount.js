@@ -1,3 +1,5 @@
+// Write a function which takes in a string and returns counts of each character in the string.
+
 function charCount(str) {
   // make object to return at end
   var result = {};

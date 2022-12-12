@@ -1,4 +1,6 @@
-// first Refactored version
+// Write a function which takes in a string and returns counts of each character in the string.
+
+/* ------------------- 1st Refactored version ------------------- */
 
 function charCount(str) {
   var obj = {};
@@ -17,7 +19,7 @@ function charCount(str) {
 }
 console.log(charCount("My name is muhammad saeed"));
 
-// 2nd Refactored version
+/* ------------------- 2nd Refactored version ------------------- */
 
 function charCount1(str) {
   var obj = {};
@@ -32,7 +34,7 @@ function charCount1(str) {
 }
 console.log(charCount1("My name is muhammad saeed"));
 
-// 3rd Refactored version
+/* ------------------- 3rd Refactored version ------------------- */
 
 function charCount2(str) {
   var obj = {};
