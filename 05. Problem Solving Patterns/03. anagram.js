@@ -32,5 +32,10 @@ function validAnagram(first, second) {
   return true;
 }
 
-// {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
-validAnagram("anagrams", "nagaramm");
+validAnagram('', '') // true
+validAnagram('aaz', 'zza') // false
+validAnagram('anagram', 'nagaram') // true
+validAnagram("rat","car") // false) // false
+validAnagram('awesome', 'awesom') // false
+validAnagram('qwerty', 'qeywrt') // true
+validAnagram('texttwisttime', 'timetwisttext') // true
