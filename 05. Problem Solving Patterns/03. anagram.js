@@ -28,6 +28,7 @@ function validAnagram(first, second) {
     // if letter exists, increment, otherwise set to 1
     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
   }
+
   console.log(lookup);
 
   for (let i = 0; i < second.length; i++) {
@@ -43,10 +44,4 @@ function validAnagram(first, second) {
   return true;
 }
 
-validAnagram('', '') // true
-validAnagram('aaz', 'zza') // false
-validAnagram('anagram', 'nagaram') // true
-validAnagram("rat","car")  // false
-validAnagram('awesome', 'awesom') // false
-validAnagram('qwerty', 'qeywrt') // true
-validAnagram('texttwisttime', 'timetwisttext') // true
+console.log(validAnagram("texttwisttime", "timetwisttext"));

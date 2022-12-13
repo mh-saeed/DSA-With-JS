@@ -7,17 +7,17 @@ The frequency(number of elements in each array)
 must be same
 
 Expected behavior:
+
 same([1,2,3], [4,1,9]) // true
 same([1,2,3], [1,9]) // false
 same([1,2,1], [4,4,1]) // false (must be same frequency)
 */
 
-
 function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
-  
+
   let frequencyCounter1 = {};
   let frequencyCounter2 = {};
 
@@ -43,4 +43,4 @@ function same(arr1, arr2) {
   return true;
 }
 
-same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]);
+console.log(same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]));
