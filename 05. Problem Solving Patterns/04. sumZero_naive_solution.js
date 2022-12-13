@@ -12,7 +12,13 @@ sumZero([1,2,3]) // undefined
 
 */
 
-// -------------------- NAIVE SOLUTION --------------------
+// -------------------- NAIVE(Not Good) SOLUTION --------------------
+
+
+// Solution Performance:
+// Time Complexity = O(N^2) 
+// Space Complexity = O(1) 
+
 
 function sumZero(arr) {
   for (let i = 0; i < arr.length; i++) {

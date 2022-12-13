@@ -13,6 +13,8 @@ same([1,2,3], [1,9]) // false
 same([1,2,1], [4,4,1]) // false (must be same frequency)
 */
 
+// -------------------- NAIVE(Not Good) SOLUTION --------------------
+
 function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
