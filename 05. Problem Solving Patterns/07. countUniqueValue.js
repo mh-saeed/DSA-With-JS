@@ -13,6 +13,10 @@ countUniqueValues([-2,-1,-1,0,1]) // 4
 
 */
 
+// Performance of Both Solution:
+// Time Complexity - O(N)
+// Space Complexity - O(1) 
+
 // -------------- Solution Without removing duplicate items (Good Solution) --------------
 
 const countUniqueValues = (arr) => {
