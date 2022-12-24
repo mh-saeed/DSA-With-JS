@@ -3,4 +3,4 @@ function logAtMost5(n = 0) {
     console.log(i);
   }
 }
-logAtMost5(10); // O(1)
+logAtMost5(10); // Time Complexity O(1)
