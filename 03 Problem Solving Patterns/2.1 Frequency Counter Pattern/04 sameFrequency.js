@@ -18,7 +18,7 @@ const sameFrequency1 = (int1, int2) => {
   let str2Obj = {};
 
   for (const val of int1Str) {
-    str1Obj[val] = str1Obj[val] + 1 || 1;
+    str1Obj[val] = str1Obj[val] ? str1Obj[val] + 1 : 1;
   }
 
   for (const val of int2Str) {
@@ -26,10 +26,11 @@ const sameFrequency1 = (int1, int2) => {
   }
 
   for (const key in str1Obj) {
-    if (str1Obj[key] === str2Obj[key]) {
-      return true;
-    } else return false;
+    if (str1Obj[key] !== str2Obj[key]) {
+      return false;
+    }
   }
+  return true;
 };
 
 console.log(`\nSolution 1`);
