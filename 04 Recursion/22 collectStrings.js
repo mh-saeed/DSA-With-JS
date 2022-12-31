@@ -1,18 +1,22 @@
 // Write a function called collectStrings which accepts an object and
 // returns an array of all the values in the object that have a typeof string.
 
-function collectStrings(obj) {
-  let result = [];
+function collectStringsHelperMethod(obj) {
+  var stringsArr = [];
 
-  for (const key in obj) {
-    if (Object.hasOwnProperty.call(obj, key)) {
-      if (typeof obj[key] === "string") result.push(obj[key]);
-      if (typeof obj[key] === "object")
-        result = result.concat  (collectStrings(obj[key]));
+  function gatherStrings(o) {
+    for (var key in o) {
+      if (typeof o[key] === "string") {
+        stringsArr.push(o[key]);
+      } else if (typeof o[key] === "object") {
+        return gatherStrings(o[key]);
+      }
     }
   }
 
-  return result;
+  gatherStrings(obj);
+
+  return stringsArr;
 }
 
 const obj = {
@@ -30,4 +34,21 @@ const obj = {
     },
   },
 };
+
+console.log(collectStringsHelperMethod(obj)); // ['foo', 'bar', 'baz'])
+
+function collectStrings(obj) {
+  let result = [];
+
+  for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+      if (typeof obj[key] === "string") result.push(obj[key]);
+      if (typeof obj[key] === "object")
+        result = result.concat(collectStrings(obj[key]));
+    }
+  }
+
+  return result;
+}
+
 console.log(collectStrings(obj)); // ['foo', 'bar', 'baz'])
