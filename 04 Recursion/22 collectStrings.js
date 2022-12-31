@@ -1,6 +1,8 @@
 // Write a function called collectStrings which accepts an object and
 // returns an array of all the values in the object that have a typeof string.
 
+// -------------- Helper Method Recursion Version --------------
+
 function collectStringsHelperMethod(obj) {
   var stringsArr = [];
 
@@ -36,6 +38,8 @@ const obj = {
 };
 
 console.log(collectStringsHelperMethod(obj)); // ['foo', 'bar', 'baz'])
+
+// -------------- Pure Recursion Version --------------
 
 function collectStrings(obj) {
   let result = [];
