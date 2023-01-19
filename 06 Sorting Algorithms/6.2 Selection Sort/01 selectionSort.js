@@ -2,17 +2,18 @@
 
 function selectionSortLegVer(arr) {
   for (var i = 0; i < arr.length; i++) {
-    var lowest = i;
+    var indexOfLowest = i;
+
     for (var j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
+      if (arr[j] < arr[indexOfLowest]) {
+        indexOfLowest = j;
       }
     }
-    if (i !== lowest) {
+    if (i !== indexOfLowest) {
       //SWAP!
       var temp = arr[i];
-      arr[i] = arr[lowest];
-      arr[lowest] = temp;
+      arr[i] = arr[indexOfLowest];
+      arr[indexOfLowest] = temp;
     }
   }
   return arr;
@@ -27,13 +28,14 @@ function selectionSort(arr) {
     ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
 
   for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
+    let indexOfLowest = i;
+
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[lowest] > arr[j]) {
-        lowest = j;
+      if (arr[indexOfLowest] > arr[j]) {
+        indexOfLowest = j;
       }
     }
-    if (i !== lowest) swap(arr, i, lowest);
+    if (i !== indexOfLowest) swap(arr, i, indexOfLowest);
   }
 
   return arr;
