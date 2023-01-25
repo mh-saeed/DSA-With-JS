@@ -1,17 +1,9 @@
-function mergeArrays(inputArr1, inputArr2) {
-  if (inputArr1.length > inputArr2.length) {
-    arr1 = inputArr2;
-    arr2 = inputArr1;
-  } else {
-    arr1 = inputArr1;
-    arr2 = inputArr2;
-  }
-
+function mergeArrays(arr1, arr2) {
   let mergedArray = [];
   let pointer1 = 0;
   let pointer2 = 0;
 
-  while (pointer1 < arr1.length) {
+  while (pointer1 < arr1.length && pointer2 < arr2.length) {
     if (arr1[pointer1] < arr2[pointer2]) {
       mergedArray.push(arr1[pointer1]);
       ++pointer1;
@@ -26,17 +18,36 @@ function mergeArrays(inputArr1, inputArr2) {
     }
   }
 
-  if (pointer1 === arr1.length && pointer1 < arr2.length) {
-    for (let i = pointer2; i < arr2.length; i++) {
-      mergedArray.push(arr2[i]);
-    }
+  while (pointer1 < arr1.length) {
+    mergedArray.push(arr1[pointer1]);
+    ++pointer1;
+  }
+  while (pointer2 < arr2.length) {
+    mergedArray.push(arr2[pointer2]);
+    ++pointer2;
   }
 
   return mergedArray;
 }
 
-let sortedArr1 = [1, 2, 3, 4];
-let sortedArr2 = [-2, -1, 0, 1, 2, 2, 3, 5, 6, 9, 15];
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
 
-console.log("Separated arrays: ", sortedArr1, sortedArr2);
-console.log("Merged array: ", mergeArrays(sortedArr1, sortedArr2));
+  let middle = Math.floor(arr.length / 2);
+
+  let left = mergeSort(arr.slice(0, middle));
+  let right = mergeSort(arr.slice(middle));
+
+  return mergeArrays(left, right);
+}
+
+let unsortedArray = Array.from(
+  { length: 100 },
+  () => Math.floor(Math.random() * 200) - 100
+);
+
+console.log("Unsorted Array:", unsortedArray);
+console.log("Sorted Array:", mergeSort(unsortedArray));
+
+// console.dir will display complete array in VS terminal
+// console.dir(mergeSort(unsortedArray), { maxArrayLength: null });
