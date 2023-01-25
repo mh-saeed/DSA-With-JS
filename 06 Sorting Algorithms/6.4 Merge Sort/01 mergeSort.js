@@ -7,13 +7,8 @@ function mergeArrays(arr1, arr2) {
     if (arr1[pointer1] < arr2[pointer2]) {
       mergedArray.push(arr1[pointer1]);
       ++pointer1;
-    } else if (arr1[pointer1] > arr2[pointer2]) {
-      mergedArray.push(arr2[pointer2]);
-      ++pointer2;
     } else {
-      mergedArray.push(arr1[pointer1]);
       mergedArray.push(arr2[pointer2]);
-      ++pointer1;
       ++pointer2;
     }
   }
@@ -22,6 +17,7 @@ function mergeArrays(arr1, arr2) {
     mergedArray.push(arr1[pointer1]);
     ++pointer1;
   }
+
   while (pointer2 < arr2.length) {
     mergedArray.push(arr2[pointer2]);
     ++pointer2;
@@ -41,8 +37,9 @@ function mergeSort(arr) {
   return mergeArrays(left, right);
 }
 
+// Generating unsorted array of positive & negative numbers
 let unsortedArray = Array.from(
-  { length: 100 },
+  { length: 25 },
   () => Math.floor(Math.random() * 200) - 100
 );
 
