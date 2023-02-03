@@ -21,6 +21,7 @@ function mostDigits(nums) {
   for (let i = 0; i < nums.length; i++) {
     maxDigits = Math.max(maxDigits, digitCount(nums[i]));
   }
+
   return maxDigits;
 }
 
@@ -49,6 +50,7 @@ function radixSort(nums) {
     // printing elements in single array format
     console.log(nums);
   }
+
   // Return the sorted input array
   return nums;
 }
