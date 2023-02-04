@@ -1,1 +1,1 @@
-# JavaScript-Algorithms-and-Data-Structures
+# Data Structure & Algorithms with JavaScript
