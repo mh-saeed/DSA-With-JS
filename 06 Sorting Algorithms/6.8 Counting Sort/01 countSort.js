@@ -1,6 +1,7 @@
 const countSort = (inputArr) => {
   // Get the number of elements in the input array
   const n = inputArr.length;
+  
   // Get the maximum and minimum values in the input array
   let maxValue = Math.max(...inputArr);
   let minValue = Math.min(...inputArr);

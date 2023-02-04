@@ -37,6 +37,7 @@ function mergeRuns(runList) {
   }
 
   let newRunList = []; // List of merged runs
+
   for (let i = 0; i < runList.length; i += 2) {
     if (i + 1 < runList.length) {
       newRunList.push(mergeSortedArrays(runList[i], runList[i + 1]));
@@ -44,6 +45,7 @@ function mergeRuns(runList) {
       newRunList.push(runList[i]);
     }
   }
+
   return mergeRuns(newRunList);
 }
 
@@ -57,6 +59,7 @@ function timSortRec(array) {
   for (let startIndex = 0; startIndex < array.length; startIndex += runSize) {
     let endIndex = Math.min(startIndex + runSize, array.length); // End index of the current run
     let run = array.slice(startIndex, endIndex); // The current run
+
     run.sort((a, b) => a - b); // Sort the current run using built-in sort method
     runList.push(run); // Add the current run to the list of sorted runs
   }
@@ -74,6 +77,7 @@ function timSortNonRec(array) {
   for (let startIndex = 0; startIndex < array.length; startIndex += runSize) {
     let endIndex = Math.min(startIndex + runSize, array.length);
     let run = array.slice(startIndex, endIndex);
+
     run.sort((a, b) => a - b);
     runList.push(run);
   }
@@ -81,6 +85,7 @@ function timSortNonRec(array) {
   // Merge the sorted runs until there's only one remaining run
   while (runList.length > 1) {
     let newRunList = [];
+
     for (let i = 0; i < runList.length; i += 2) {
       if (i + 1 < runList.length) {
         newRunList.push(mergeSortedArrays(runList[i], runList[i + 1]));
