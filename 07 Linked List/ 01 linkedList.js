@@ -31,12 +31,10 @@ class SinglyLinkedList {
 
   // will remove the last list item
   pop() {
-    var current = this.head;
-    var newTail = current;
+    if (!this.head) return undefined;
 
-    if (!this.head) {
-      return undefined;
-    }
+    let current = this.head;
+    let newTail = current;
 
     while (current.next) {
       newTail = current;
@@ -46,12 +44,28 @@ class SinglyLinkedList {
     this.tail = newTail;
     this.tail.next = null;
     this.length--;
+
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
     return current;
+  }
+
+  // will remove the 1st(head) element from the list
+  shift() {
+    if (!this.head) return undefined;
+
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return currentHead;
   }
 }
 
@@ -60,7 +74,5 @@ var list = new SinglyLinkedList();
 console.log(list.push("HELLO"));
 console.log(list.push("GOODBYE"));
 
-console.log(list.pop());
-console.log(list);
-console.log(list.pop());
+console.log(list.shift());
 console.log(list);
