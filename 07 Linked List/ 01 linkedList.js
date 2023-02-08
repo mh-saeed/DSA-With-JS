@@ -14,7 +14,7 @@ class SinglyLinkedList {
 
   // will add an element at the end of list
   push(value) {
-    var newNode = new Node(value);
+    let newNode = new Node(value);
 
     if (!this.head) {
       this.head = newNode;
@@ -57,7 +57,7 @@ class SinglyLinkedList {
   shift() {
     if (!this.head) return undefined;
 
-    var currentHead = this.head;
+    let currentHead = this.head;
     this.head = currentHead.next;
     this.length--;
 
@@ -68,8 +68,8 @@ class SinglyLinkedList {
     return currentHead;
   }
 
-  unshift(value) {
-    let newNode = new Node(value);
+  unshift(val) {
+    let newNode = new Node(val);
 
     if (!this.head) {
       this.head = newNode;
@@ -78,13 +78,13 @@ class SinglyLinkedList {
       newNode.next = this.head;
       this.head = newNode;
     }
-    this.length++;
 
+    this.length++;
     return this;
   }
 }
 
-var list = new SinglyLinkedList();
+let list = new SinglyLinkedList();
 
 console.log(list.push("HELLO"));
 console.log();
