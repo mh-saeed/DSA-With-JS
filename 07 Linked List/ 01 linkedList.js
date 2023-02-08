@@ -92,6 +92,7 @@ class SinglyLinkedList {
 
     let counter = 0;
     let current = this.head;
+
     while (counter != index) {
       current = current.next;
       ++counter;
