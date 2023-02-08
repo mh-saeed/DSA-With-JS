@@ -67,12 +67,29 @@ class SinglyLinkedList {
 
     return currentHead;
   }
+
+  unshift(value) {
+    let newNode = new Node(value);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+
+    return this;
+  }
 }
 
 var list = new SinglyLinkedList();
 
 console.log(list.push("HELLO"));
+console.log();
 console.log(list.push("GOODBYE"));
+console.log();
 
-console.log(list.shift());
-console.log(list);
+console.log(list.unshift("Saeed"));
+console.log(list.unshift("Muhammad"));
