@@ -68,6 +68,7 @@ class SinglyLinkedList {
     return currentHead;
   }
 
+  // will add a given value at the beginning of the list
   unshift(val) {
     let newNode = new Node(val);
 
@@ -82,6 +83,22 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  // will get the value of a given index
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return null;
+    }
+
+    let counter = 0;
+    let current = this.head;
+    while (counter != index) {
+      current = current.next;
+      ++counter;
+    }
+
+    return current;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -93,3 +110,5 @@ console.log();
 
 console.log(list.unshift("Saeed"));
 console.log(list.unshift("Muhammad"));
+console.log("-----------------------");
+console.log(list.get(2));
