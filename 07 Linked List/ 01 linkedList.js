@@ -12,7 +12,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  // will add an element at the end of list
+  // Adding a new node to the end of the Linked List!
   push(value) {
     let newNode = new Node(value);
 
@@ -29,7 +29,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  // will remove the last list item
+  // Removing a node from the end of the Linked List!
   pop() {
     if (!this.head) return undefined;
 
@@ -53,7 +53,7 @@ class SinglyLinkedList {
     return current;
   }
 
-  // will remove the 1st(head) element from the list
+  // Removing a new node from the beginning of the Linked List!
   shift() {
     if (!this.head) return undefined;
 
@@ -68,7 +68,7 @@ class SinglyLinkedList {
     return currentHead;
   }
 
-  // will add a given value at the beginning of the list
+  // Adding a new node to the beginning of the Linked List!
   unshift(val) {
     let newNode = new Node(val);
 
@@ -84,7 +84,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  // will get the value of a given index
+  // Retrieving a node by it's position in the Linked List!
   get(index) {
     if (index < 0 || index >= this.length) {
       return null;
@@ -101,7 +101,7 @@ class SinglyLinkedList {
     return current;
   }
 
-  // will set a new value at given index
+  // Changing value of a node based on it's position in the Linked List
   set(index, val) {
     let foundNode = this.get(index);
 
@@ -112,18 +112,34 @@ class SinglyLinkedList {
 
     return false;
   }
+
+  // Adding a node to the Linked List at a specific position
+  insert(index, value) {
+    if (index < 0 || index > this.length) {
+      return false;
+    } else if (index === this.length) {
+      this.push(value);
+      return true;
+    } else if (index === 0) {
+      this.unshift(value);
+      return true;
+    } else {
+      let newNode = new Node(value);
+      let prev = this.get(index - 1);
+      let temp = prev.next;
+      prev.next = newNode;
+      newNode.next = temp;
+    }
+    this.length++;
+    return true;
+  }
 }
 
 let list = new SinglyLinkedList();
-
-console.log(list.push("HELLO"));
-console.log();
-console.log(list.push("GOODBYE"));
-console.log();
-
-console.log(list.unshift("Saeed"));
-console.log(list.unshift("Muhammad"));
-console.log("-----------------------");
-console.log(list.get(2));
-console.log(list.set(2, "Hello 2"));
-console.log(list.get(2));
+list.push(100);
+list.push(700);
+list.push(300);
+list.push(1400);
+console.log(list);
+console.log("---------------------------");
+console.log(list.insert(2, "Numbers"));
