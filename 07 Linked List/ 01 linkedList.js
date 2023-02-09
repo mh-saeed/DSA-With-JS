@@ -100,6 +100,18 @@ class SinglyLinkedList {
 
     return current;
   }
+
+  // will set a new value at given index
+  set(index, val) {
+    let foundNode = this.get(index);
+
+    if (foundNode) {
+      foundNode.value = val;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -112,4 +124,6 @@ console.log();
 console.log(list.unshift("Saeed"));
 console.log(list.unshift("Muhammad"));
 console.log("-----------------------");
+console.log(list.get(2));
+console.log(list.set(2, "Hello 2"));
 console.log(list.get(2));
