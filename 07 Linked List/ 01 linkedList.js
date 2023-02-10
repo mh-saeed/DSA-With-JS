@@ -156,6 +156,14 @@ class SinglyLinkedList {
     return this;
   }
 
+  // Explanation
+
+  // null [100, 555, 222, 333]
+
+  // Prev Node Next
+
+  //  333 -> 222 -> 555 -> 100 -> null
+
   // will print Linked list item
   print() {
     let arr = [];
