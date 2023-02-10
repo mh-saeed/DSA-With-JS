@@ -25,7 +25,6 @@ class SinglyLinkedList {
     }
 
     this.length++;
-
     return this;
   }
 
@@ -69,16 +68,16 @@ class SinglyLinkedList {
   }
 
   // Adding a new node to the beginning of the Linked List!
-  unshift(val) {
-    let newNode = new Node(val);
+  unshift(value) {
+    let newNode = new Node(value);
 
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
     }
+
+    newNode.next = this.head;
+    this.head = newNode;
 
     this.length++;
     return this;
@@ -86,27 +85,25 @@ class SinglyLinkedList {
 
   // Retrieving a node by it's position in the Linked List!
   get(index) {
-    if (index < 0 || index >= this.length) {
-      return null;
-    }
+    if (index < 0 || index >= this.length) return null;
 
     let counter = 0;
     let current = this.head;
 
-    while (counter != index) {
+    while (counter !== index) {
       current = current.next;
-      ++counter;
+      counter++;
     }
 
     return current;
   }
 
   // Changing value of a node based on it's position in the Linked List
-  set(index, val) {
+  set(index, value) {
     let foundNode = this.get(index);
 
     if (foundNode) {
-      foundNode.value = val;
+      foundNode.value = value;
       return true;
     }
 
@@ -142,15 +139,43 @@ class SinglyLinkedList {
     this.length--;
     return removedNode;
   }
+
+  // Reversing the Linked List in place!
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
+
+  // will print Linked list item
+  print() {
+    let arr = [];
+    let current = this.head;
+
+    while (current) {
+      arr.push({ current: current.value, next: current.next });
+      current = current.next;
+    }
+    console.log(arr);
+  }
 }
 
 let list = new SinglyLinkedList();
+
 list.push(100);
-list.push(700);
-list.push(300);
-list.push(1400);
-console.log(list);
-console.log("---------------------------");
-console.log(list.insert(2, "Numbers"));
-console.log(list.remove(list.length - 1));
-console.log(list);
+list.push(201);
+list.push(250);
+list.push(350);
+list.push(999);
+list.print();
+list.reverse();
+list.print();
