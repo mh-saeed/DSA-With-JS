@@ -142,27 +142,54 @@ class SinglyLinkedList {
 
   // Reversing the Linked List in place!
   reverse() {
+    // swapping head & tail
     let node = this.head;
     this.head = this.tail;
     this.tail = node;
+
+    // creating pointers for iteration
     let next;
     let prev = null;
+
     for (let i = 0; i < this.length; i++) {
       next = node.next;
       node.next = prev;
       prev = node;
       node = next;
     }
+
     return this;
   }
 
   // Explanation
 
-  // null [100, 555, 222, 333]
-  // Prev Node Next
+  /* ----------- before getting into loop ----------- */
 
-  // Head    Tail
-  // 333     100
+  //        Tail              Head
+  // null  [100,  555,  222,  333]
+  // Prev   Node
+
+  /* ------------- getting into loop ------------- */
+
+  // ----------- 1st iteration --------------
+
+  //        Tail                     Head
+  // null  [100,      555,     222,  333]
+  //        Prev  Next & Node
+
+  //     Node     Node.Next
+  //     100  ->  null
+
+  // ----------- 2nd iteration --------------
+
+  //        Tail                       Head
+  // null  [100,   555,      222,      333]
+  //               Prev   Next & Node
+
+  //     Node    Node.Next
+  //     555  ->    100    -> null
+
+  // Explanation End
 
   // will print Linked list item
   print() {
