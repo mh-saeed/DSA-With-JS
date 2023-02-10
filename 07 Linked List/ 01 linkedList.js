@@ -115,28 +115,32 @@ class SinglyLinkedList {
 
   // Adding a node to the Linked List at a specific position
   insert(index, value) {
-    if (index < 0 || index > this.length) {
-      return false;
-    }
-
-    if (index === this.length) {
-      this.push(value);
-      return true;
-    }
-
-    if (index === 0) {
-      this.unshift(value);
-      return true;
-    }
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.push(value) && true;
+    if (index === 0) return this.unshift(value) && true;
 
     let newNode = new Node(value);
-    let prev = this.get(index - 1);
-    let temp = prev.next;
-    prev.next = newNode;
+    let prevNode = this.get(index - 1);
+    let temp = prevNode.next;
+    prevNode.next = newNode;
     newNode.next = temp;
 
     this.length++;
     return true;
+  }
+
+  // Removing a node from the Linked List at a specific position
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    let prevNode = this.get(index - 1);
+    let removedNode = prevNode.next;
+    prevNode.next = removedNode.next;
+
+    this.length--;
+    return removedNode;
   }
 }
 
@@ -148,3 +152,5 @@ list.push(1400);
 console.log(list);
 console.log("---------------------------");
 console.log(list.insert(2, "Numbers"));
+console.log(list.remove(list.length - 1));
+console.log(list);
