@@ -159,10 +159,10 @@ class SinglyLinkedList {
   // Explanation
 
   // null [100, 555, 222, 333]
-
   // Prev Node Next
 
-  //  333 -> 222 -> 555 -> 100 -> null
+  // Head    Tail
+  // 333     100
 
   // will print Linked list item
   print() {
