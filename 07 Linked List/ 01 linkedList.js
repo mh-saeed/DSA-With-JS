@@ -161,7 +161,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  // Explanation
+  // ---------------------- Explanation Start ----------------------
 
   /* ----------- before getting into loop ----------- */
 
@@ -174,8 +174,8 @@ class SinglyLinkedList {
   // ----------- 1st iteration --------------
 
   //        Tail                     Head
-  // null  [100,      555,     222,  333]
-  //        Prev  Next & Node
+  // null  [100,      555,      222,  333]
+  //        Prev   Next & Node
 
   //     Node     Node.Next
   //     100  ->  null
@@ -189,7 +189,7 @@ class SinglyLinkedList {
   //     Node    Node.Next
   //     555  ->    100    -> null
 
-  // Explanation End
+  // ---------------------- Explanation End ----------------------
 
   // will print Linked list item
   print() {
