@@ -28,13 +28,35 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    let poppedTail = this.tail;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = poppedTail.prev;
+      this.tail.next = null;
+      poppedTail.prev = null;
+    }
+
+    this.length--;
+    return poppedTail;
+  }
 }
 
 let doublyList = new DoublyLinkedList();
 
-console.log(doublyList.push(9));
-console.log(doublyList.push(10));
-console.log(doublyList.push(11));
-console.log(doublyList.push(12));
-console.log(doublyList.push(13));
-console.log(doublyList.push(13));
+doublyList.push("start");
+doublyList.push("0");
+doublyList.push("1");
+doublyList.push("2");
+doublyList.push("3");
+doublyList.push("end");
+
+console.log(doublyList.pop());
