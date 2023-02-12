@@ -93,7 +93,7 @@ class DoublyLinkedList {
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
-    var count, current;
+    let count, current;
 
     if (index <= this.length / 2) {
       count = 0;
@@ -113,6 +113,18 @@ class DoublyLinkedList {
 
     return current;
   }
+
+  // Changing value of a node based on it's position in the List
+  set(index, value) {
+    let foundNode = this.get(index);
+
+    if (foundNode != null) {
+      foundNode.value = value;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 let doublyList = new DoublyLinkedList();
@@ -124,4 +136,6 @@ doublyList.push(3);
 doublyList.push(4);
 doublyList.push("end");
 
-console.log(doublyList.get(0));
+// console.log(doublyList.get(3));
+console.log(doublyList.set(3, "3 changed"));
+console.log(doublyList.get(3));
