@@ -13,6 +13,7 @@ class DoublyLinkedList {
     this.length = 0;
   }
 
+  // Adding a new node to the end of the List!
   push(value) {
     let newNode = new Node(value);
 
@@ -29,6 +30,7 @@ class DoublyLinkedList {
     return this;
   }
 
+  // Removing a node from the end of the List!
   pop() {
     if (this.length === 0) {
       return undefined;
@@ -49,6 +51,7 @@ class DoublyLinkedList {
     return poppedTail;
   }
 
+  // Removing a new node from the beginning of the List!
   shift() {
     if (this.length === 0) {
       return undefined;
@@ -68,16 +71,31 @@ class DoublyLinkedList {
     this.length--;
     return oldHead;
   }
+
+  // Adding a new node to the beginning of the List!
+  unshift(value) {
+    let newNode = new Node(value);
+
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
 
 let doublyList = new DoublyLinkedList();
 
-doublyList.push("start");
 doublyList.push("0");
 doublyList.push("1");
 doublyList.push("2");
 doublyList.push("3");
 doublyList.push("end");
 
-console.log(doublyList.shift());
-console.log(doublyList);
+console.log(doublyList.unshift("start"));
