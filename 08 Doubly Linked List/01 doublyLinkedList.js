@@ -88,14 +88,40 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  // Retrieving a node by it's position in the List!
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    var count, current;
+
+    if (index <= this.length / 2) {
+      count = 0;
+      current = this.head;
+      while (count !== index) {
+        current = current.next;
+        count++;
+      }
+    } else {
+      count = this.length - 1;
+      current = this.tail;
+      while (count !== index) {
+        current = current.prev;
+        count--;
+      }
+    }
+
+    return current;
+  }
 }
 
 let doublyList = new DoublyLinkedList();
 
-doublyList.push("0");
-doublyList.push("1");
-doublyList.push("2");
-doublyList.push("3");
+doublyList.push("start");
+doublyList.push(1);
+doublyList.push(2);
+doublyList.push(3);
+doublyList.push(4);
 doublyList.push("end");
 
-console.log(doublyList.unshift("start"));
+console.log(doublyList.get(0));
