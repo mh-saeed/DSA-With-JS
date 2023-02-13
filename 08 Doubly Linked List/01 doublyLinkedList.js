@@ -143,6 +143,7 @@ class DoublyLinkedList {
     return true;
   }
 
+  // Removing a node from the Linked List at a specific position
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) return this.shift();
@@ -157,8 +158,27 @@ class DoublyLinkedList {
     removedNode.next = null;
 
     this.length--;
-
     return removedNode;
+  }
+
+  // Reversing the Linked List in place!
+  reverse() {
+    let currentNode = this.head;
+    let tail = this.tail;
+
+    while (currentNode) {
+      [currentNode.next, currentNode.prev] = [
+        currentNode.prev,
+        currentNode.next,
+      ];
+
+      currentNode = currentNode.prev;
+    }
+
+    this.tail = this.head;
+    this.head = tail;
+
+    return this;
   }
 
   // will print Linked list item
@@ -188,5 +208,6 @@ doublyList.push(3);
 doublyList.push(4);
 doublyList.push("end");
 
-console.log(doublyList.remove(3));
+console.log(doublyList.print());
+doublyList.reverse();
 console.log(doublyList.print());
