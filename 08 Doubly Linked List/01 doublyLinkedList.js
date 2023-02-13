@@ -167,10 +167,18 @@ class DoublyLinkedList {
     let tail = this.tail;
 
     while (currentNode) {
-      [currentNode.next, currentNode.prev] = [
+      // Swap the next and prev properties of the current node.
+
+      // ES5 Version
+      let temp = currentNode.next;
+      currentNode.next = currentNode.prev;
+      currentNode.prev = temp;
+
+      // ES2015 Version
+      /* [currentNode.next, currentNode.prev] = [
         currentNode.prev,
         currentNode.next,
-      ];
+      ]; */
 
       currentNode = currentNode.prev;
     }
@@ -187,12 +195,12 @@ class DoublyLinkedList {
     let current = this.head;
 
     while (current) {
-      // arr.push(current.value);
-      arr.push({
-        current: current.value,
-        prev: current.prev,
-        next: current.next,
-      });
+      arr.push(current.value);
+      // arr.push({
+      //   current: current.value,
+      //   prev: current.prev,
+      //   next: current.next,
+      // });
       current = current.next;
     }
     console.log(arr);
