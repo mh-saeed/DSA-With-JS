@@ -160,6 +160,23 @@ class DoublyLinkedList {
 
     return removedNode;
   }
+
+  // will print Linked list item
+  print() {
+    let arr = [];
+    let current = this.head;
+
+    while (current) {
+      // arr.push(current.value);
+      arr.push({
+        current: current.value,
+        prev: current.prev,
+        next: current.next,
+      });
+      current = current.next;
+    }
+    console.log(arr);
+  }
 }
 
 let doublyList = new DoublyLinkedList();
@@ -171,5 +188,5 @@ doublyList.push(3);
 doublyList.push(4);
 doublyList.push("end");
 
-// console.log(doublyList.get(3));
 console.log(doublyList.remove(3));
+console.log(doublyList.print());
