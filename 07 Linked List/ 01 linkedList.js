@@ -197,6 +197,7 @@ class SinglyLinkedList {
     let current = this.head;
 
     while (current) {
+      // arr.push(current.value);
       arr.push({ current: current.value, next: current.next });
       current = current.next;
     }

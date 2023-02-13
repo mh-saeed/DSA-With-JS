@@ -126,20 +126,39 @@ class DoublyLinkedList {
     return false;
   }
 
+  // Adding a node to the List at a specific position
   insert(index, value) {
     if (index < 0 || index > this.length) return false;
-    if (index === 0) return !!this.unshift(value);
-    if (index === this.length) return !!this.push(value);
+    if (index === 0) return this.unshift(value) && true;
+    if (index === this.length) return this.push(value) && true;
 
-    var newNode = new Node(value);
-    var beforeNode = this.get(index - 1);
-    var afterNode = beforeNode.next;
+    let newNode = new Node(value);
+    let beforeNode = this.get(index - 1);
+    let afterNode = beforeNode.next;
 
     (beforeNode.next = newNode), (newNode.prev = beforeNode);
     (newNode.next = afterNode), (afterNode.prev = newNode);
 
     this.length++;
     return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    let removedNode = this.get(index);
+
+    removedNode.prev.next = removedNode.next;
+    removedNode.next.prev = removedNode.prev;
+
+    removedNode.prev = null;
+    removedNode.next = null;
+
+    this.length--;
+
+    return removedNode;
   }
 }
 
@@ -153,6 +172,4 @@ doublyList.push(4);
 doublyList.push("end");
 
 // console.log(doublyList.get(3));
-console.log(doublyList.insert(3, "3 changed"));
-console.log(doublyList.get(3).value);
-console.log(doublyList.get(4).value);
+console.log(doublyList.remove(3));
