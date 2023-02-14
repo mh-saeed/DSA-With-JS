@@ -11,6 +11,8 @@ class Queue {
     this.last = null;
     this.size = 0;
   }
+
+  // Adding to the beginning of the Queue!
   enqueue(val) {
     var newNode = new Node(val);
     if (!this.first) {
@@ -23,6 +25,7 @@ class Queue {
     return ++this.size;
   }
 
+  // Removing from the beginning of the Queue!
   dequeue() {
     if (!this.first) return null;
 
