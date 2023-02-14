@@ -38,3 +38,14 @@ class Stack {
     return temp.value;
   }
 }
+
+let stack = new Stack();
+
+console.log(stack.push("Start"));
+console.log(stack.push("0"));
+console.log(stack.push("1"));
+console.log(stack.push("2"));
+console.log(stack.push("3"));
+console.log(stack.push("end"));
+
+console.log(stack.pop());
