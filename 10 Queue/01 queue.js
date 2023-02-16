@@ -12,7 +12,7 @@ class Queue {
     this.size = 0;
   }
 
-  // Adding to the beginning of the Queue!
+  // Adding at the end of the Queue!
   enqueue(val) {
     let newNode = new Node(val);
 
